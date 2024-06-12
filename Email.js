@@ -5,7 +5,7 @@ let Email = {
             name:'Inbox',
             emails: [
                 {
-                    subject: 'Sample',
+                    Subject: 'Sample',
                     From: 'Prime Communications <Primecommunications@att.com>',
                     To: 'amurph.910@gmail.com',
                     Body: 'Dear valued customer, We will be removing your employee as of July 1st.',
@@ -13,7 +13,7 @@ let Email = {
                     Status: 'Read'
                 },
                 {
-                    subject: 'Another Sample',
+                    Subject: 'Another Sample',
                     From: 'Family Pics <FamilyPics@Gmail.com>',
                     To: 'amurph.910@gmail.com',
                     Body: 'Hi Austin, Your brand new family portraits are finally ready! Please contact us as soon as possible.',
@@ -65,3 +65,33 @@ for (let i = 0; i <Email.mailboxes.length; i++) {
     }
 }
 console.log('Email List:', EmailList);
+
+let inboxMailboxes = Email.mailboxes.find(mailboxes => mailboxes.name === 'Inbox');
+
+let secondEmailText = inboxMailboxes.Email[1].body;
+    console.log('Text of the second email:', secondEmailText);
+    
+let draftmailboxes = Email.mailboxes.find(mailboxes => mailboxes.name === 'Drafts');
+
+let sentMailboxes = Email.mailboxes.find(mailboxes => mailboxes.name === 'Sent');
+
+if (draftmailboxes && draftmailboxes.Email.length > 0) {
+    let draftEmail = draftmailboxes.Email[0];
+    draftEmail.status = 'sent';
+    sentMailboxes.Email.push(draftEmail);
+    draftmailboxes.emails = draftmailboxes.emails.filter(Email => Email !==draftEmail);
+}
+
+console.log('Updated Email Data:', Email);
+
+let newDraftEmail = {
+    Subject, 'List of Appts':
+    From, 'amurph.910@gmail.com':
+    To, 'amurph37@gmail.com':
+    Body, 'Thank You for all your help!':
+    date, 'May 21 2024': 
+    Status, 'Drafts':
+};
+Email.mailboxes.find(mailboxes => mailboxes.name === 'Drafts').Email.push(newDraftEmail);
+
+console.log('Email Data after Adding New Draft:', Email);
