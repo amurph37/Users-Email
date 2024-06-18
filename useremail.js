@@ -57,16 +57,16 @@ for (let i = 0; i < Email.mailboxes.length; i++) {
 }
 console.log('mailboxes names', mailboxes);
 
-let EmailList = [];
+let emailList = [];
 for (let i = 0; i <Email.mailboxes.length; i++) {
     let mailboxes = Email.mailboxes[i];
     for (let j = 0; j < mailboxes.emails.length; j++) {
         EmailList.push(mailboxes.Email[j]);
     }
 }
-console.log('Email List:', EmailList);
+console.log('Email List:', emailList);
 
-let inboxMailboxes = Email.mailboxes.find(mailboxes => mailboxes.name === 'Inbox');
+let inboxMailboxes = email.mailboxes.find(mailboxes => mailboxes.name === 'Inbox');
 
 let secondEmailText = inboxMailboxes.Email[1].body;
     console.log('Text of the second email:', secondEmailText);
@@ -89,8 +89,8 @@ let newDraftEmail = {
     From: 'amurph.910@gmail.com',
     To: 'amurph37@gmail.com',
     Body: 'Thank You for all your help!',
-    date: 'May 21 2024', 
-    Status: 'Drafts',
+    date: 'May 21 2024',
+    Status: 'Drafts'
 };
 Email.mailboxes.find(mailboxes => mailboxes.name === 'Drafts').Email.push(newDraftEmail);
 
